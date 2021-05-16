@@ -4,17 +4,24 @@ let app = new Vue({
   el: "#app",
   //Data element
   data: {
-    title: "My portfolio",
-    titleHTML: "John Dow <span class='badge'>portfolio</span>",  
-    alert: "This is an alert message!",
-    projects: [
-      { title: "portfolio", desc: "Lorem ipsum" },
-      { title: "twitter clone", desc: "Lorem ipsum" },
-    ],
-    dynamicClass: "projects",
-    dynamicID: "projects_section",
-    disabled: true,
-    attribute_name: "href",
-    url: "https://www.reddit.com/"
+      userData: {},
+      name: "",
+      email: "",
+      password: "",
+      max_length: 25,
+      max_pass_length:16,    
+    },
+  methods: {
+    registerAccount() {
+      // this variables record user info
+      this.userData.name = ""
+      this.userData.email = ""
+      this.userData.password = ""
+
+      // this variables are used when you want to clear registration fields
+      this.name = ""
+      this.email = ""
+      this.password = ""
+    }
   },
-});
+})

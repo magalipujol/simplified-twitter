@@ -5,16 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="wi  dth=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Vue Js Installation</title>
-    <!-- VueJS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <title>Simple twitter</title>
+     <!-- CDN Fontawesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+     crossorigin="anonymous" />
+     <!-- VueJS development version, includes helpful console warnings -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+     <!-- Stylesheet -->
+     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Vue example</h1>
     <div id="app">
-        
+       <!-- Register an account -->
+        <div class="card">
+            <i class="fab fa-twitter fa-lg fa-fw"></i>
+
+            <h2>Create an account</h2>
+            <!-- v-on directive with submit argument listen for a submit event -->
+            <!-- .prevent modifier prevents the page from refreshing when the form is submitted -->
+            <!-- registerAccount is a method that is created in main.js, methods of the Vue instance -->
+            <form v-on:submit.prevent="registerAccount">
+                <div class="form_group">
+                    <label for="name">Username
+                        <!-- this shows input character counter so the user can know how many characters are left -->
+                        <span> {{name.length + '/' + max_length}} </span>
+                    </label>
+                  <!-- v-model directive binds the input to the data -->
+                    <input type="text" v-model="name" :maxLength="max_length" required>
+                </div>
+                <div class="form_group">
+                    <label for="email">Email</label>
+                    <input type="email" v-model="email" maxLength="max_length" required>
+                </div>
+                <div class="form_group">
+                    <label for="password">Password
+                        <span> {{password.length + '/' + max_pass_length}} </span>
+                    </label>
+                    <input type="password" v-model="password" maxLength="max_pass_length" required>
+                </div>
+                <button type="submit">Register</button>
+
+            </form>
+        </div>
+
+
+       <!-- Add a tweet -->
+
+       <!-- Show all tweets -->
+
     </div>
-    <h1>hola</h1>
     
 
     <script src="./main.js"></script>
