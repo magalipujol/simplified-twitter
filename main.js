@@ -11,5 +11,7 @@ let app = new Vue({
       { title: "portfolio", desc: "Lorem ipsum" },
       { title: "twitter clone", desc: "Lorem ipsum" },
     ],
+    dynamicClass: "projects",
+    dynamicID: "projects_section",
   },
 });

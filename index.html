@@ -12,7 +12,9 @@
 <body>
     <h1>Vue example</h1>
     <div id="app">
-        <h1 v-html="titleHTML"></h1>
+        <div v-bind:class="dynamicClass" v-bind:id="dynamicID">
+            Lorem ipsum dolorm sit amet
+        </div>
     </div>
     
     <script src="./main.js"></script>
