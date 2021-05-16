@@ -13,5 +13,8 @@ let app = new Vue({
     ],
     dynamicClass: "projects",
     dynamicID: "projects_section",
+    disabled: true,
+    attribute_name: "href",
+    url: "https://www.reddit.com/"
   },
 });
