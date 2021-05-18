@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="wi  dth=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Simple twitter</title>
@@ -17,7 +16,8 @@
         crossorigin="anonymous" />
     <!-- VueJS development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -37,10 +37,10 @@
                     <div class="form_group">
                         <label for="name">Name
                             <!-- this shows input character counter so the user can know how many characters are left -->
-                            <span> {{ name.length + '/' + max_length }}</span>
+                            <span> {{ name.length + '/' + max_length }} </span>
                         </label>
                         <!-- v-model directive binds the input to the data -->
-                        <input type="text" v-model="name" :maxlength="max_length" required>
+                        <input type="text" v-model="name" id="name" maxlength="max_length" required>
                     </div>
                     <div class="form_group">
                         <label for="email">Email
@@ -83,7 +83,29 @@
 
 
         <!-- Show all tweets -->
-
+        <div class="card_tweets" v-if="tweets.length > 0">
+            <section class="tweets">
+                <h2>Tweets</h2>
+                <div class="tweetMsg" v-for="(tweet, index) in tweets">
+                    <p>
+                        {{ tweet.text}}
+                    </p>
+                    <div class="tweetDate">
+                        <i class="fas fa-calendar fa-sm fa-fw"></i>{{ tweet.date }}
+                    </div>
+                    <div class="tweet_remove" @click="removeTweet(index)">
+                        <span class="remove">Delete this tweet <i class="fas fa-trash fa-sm fa-fw"></i></span>
+                    </div>
+                    <div class="tweet_remove" @click="removeTweet(index)">
+                        <span class="remove">Delete this tweet <i class="fas fa-trash fa-xs fa-fw"></i></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- v-else to show a message in case there are no tweets stored inside the tweets array -->
+        <div v-else>
+            No tweets to show yet!
+        </div>
     </div>
 
 
